@@ -40,14 +40,12 @@ fun App() {
             }
 
             AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                val loop = remember { Counter() }
                 Column(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
+                    Text("Compose: Hello World")
                 }
             }
         }
