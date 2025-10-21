@@ -1,40 +1,29 @@
 import SwiftUI
 import Shared
 
-
+typealias Counter = Shared.de.selch.demo.Counter
+typealias CounterState = Shared.de.selch.demo.CounterState
 
 struct ContentView: View {
-    @State private var showContent = false
+    @State var value: Int32 = 0
     
+    let counter: Counter
 
     init() {
-       
+        self.counter = Counter()
     }
     
     var body: some View {
         VStack {
-            Button("Click me!") {
-                withAnimation {
-                    showContent = !showContent
-                }
-            }
-
-            if showContent {
-                VStack(spacing: 16) {
-                    Image(systemName: "swift")
-                    
-                        .font(.system(size: 200))
-                        .foregroundColor(.accentColor)
-                    
-                    Spacer()
-                    
-                    Text("Hello World")
-                }
-                .transition(.move(edge: .top).combined(with: .opacity))
-            }
+            Text("current value: \(value)")
+            Button("Increment") { counter.increment() }
+            Button("Decrement") { counter.decrement() }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
+        .onAppear {
+            counter.subscribe(listener: { state in self.value = state.value })
+        }
     }
 }
 
