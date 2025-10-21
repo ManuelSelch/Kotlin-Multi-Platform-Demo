@@ -2,7 +2,6 @@ import SwiftUI
 import Shared
 
 typealias Counter = Shared.de.selch.demo.Counter
-typealias CounterState = Shared.de.selch.demo.CounterState
 
 struct ContentView: View {
     @State var value: Int32 = 0
@@ -19,7 +18,6 @@ struct ContentView: View {
             Button("Increment") { counter.increment() }
             Button("Decrement") { counter.decrement() }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
         .onAppear {
             counter.subscribe(listener: { state in self.value = state.value })

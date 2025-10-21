@@ -25,7 +25,6 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            // implementation("org.drewcarlson:mobiuskt-core:1.4.0")
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
         }
         commonTest.dependencies {
