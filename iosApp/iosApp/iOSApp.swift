@@ -2,9 +2,16 @@ import SwiftUI
 
 @main
 struct iOSApp: App {
+    let store: ObservableCounterStore
+    
+    init() {
+        store = ObservableCounterStore(store: Counter())
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CounterView()
+                .environmentObject(store)
         }
     }
 }

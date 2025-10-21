@@ -10,23 +10,35 @@ data class CounterState(
     var value: Int = 0
 )
 
+enum class CounterAction {
+    Increment,
+    Decrement
+}
+
 @Suppress("unused")
 class Counter: Store<CounterState>(CounterState()) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
-    fun increment() {
-        state.value += 1
-        notify()
-
-        scope.launch {
-            delay(3000)
-            decrement()
+    fun dispatch(action: CounterAction) {
+        when(action) {
+            CounterAction.Increment -> {
+                state.value += 1;
+                fetchSomething()
+            }
+            CounterAction.Decrement ->
+                state.value -= 1
         }
+
+        notify()
     }
 
-    fun decrement() {
-        state.value -= 1
-        notify()
+    private fun fetchSomething() {
+        scope.launch {
+            delay(3000)
+
+            state.value -= 1
+            notify()
+        }
     }
 
     fun subscribe(listener: (CounterState) -> Unit) {
