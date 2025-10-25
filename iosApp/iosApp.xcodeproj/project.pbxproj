@@ -21,6 +21,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		97752D112EACB7CE00F5658D /* Counter */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Counter;
+			sourceTree = "<group>";
+		};
 		B983D2F0D949409556FBFEA3 /* Configuration */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Configuration;
@@ -61,6 +66,7 @@
 				B983D2F0D949409556FBFEA3 /* Configuration */,
 				F8E8C4DA7189880A39D7105F /* iosApp */,
 				126C76756013D8BEC408FEF7 /* Products */,
+				97752D112EACB7CE00F5658D /* Counter */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +87,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				97752D112EACB7CE00F5658D /* Counter */,
 				F8E8C4DA7189880A39D7105F /* iosApp */,
 			);
 			name = iosApp;

@@ -5,12 +5,12 @@ struct iOSApp: App {
     let store: ObservableCounterStore
     
     init() {
-        store = ObservableCounterStore(store: Counter())
+        store = ObservableCounterStore(store: CounterStore())
     }
     
     var body: some Scene {
         WindowGroup {
-            CounterView()
+            CounterContainer()
                 .environmentObject(store)
         }
     }
